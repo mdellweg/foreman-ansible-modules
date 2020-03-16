@@ -194,10 +194,10 @@ class CallbackModule(CallbackBase):
         metrics = {}
 
         for host in stats.processed.keys():
-            sum = stats.summarize(host)
-            status["applied"] = sum['changed']
-            status["failed"] = sum['failures'] + sum['unreachable']
-            status["skipped"] = sum['skipped']
+            summary = stats.summarize(host)
+            status["applied"] = summary['changed']
+            status["failed"] = summary['failures'] + summary['unreachable']
+            status["skipped"] = summary['skipped']
             log = self._build_log(self.items[host])
             metrics["time"] = {"total": int(time.time()) - self.start_time}
             now = datetime.now().strftime(self.TIME_FORMAT)
