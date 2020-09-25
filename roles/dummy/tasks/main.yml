@@ -1,0 +1,8 @@
+---
+- name: Debug task
+  debug:
+    msg: Hey there
+
+- fail:
+    msg: We want to see this
+...
